@@ -1,0 +1,122 @@
+<body>
+  <h3>DOMderdag: Een beetje DOM</h3>
+  Een CSS speeltuin om uitelkaar te pluizen
+  <div id="beatrix" class="koninginmoeder" vrouw partner="claus">
+    <div id="alexander" man class="prins king" partner="maxima">
+      <div id="amalia" vrouw class="prinses" partner="minipa"></div>
+      <div id="alexia" vrouw class="prinses"></div>
+      Hello Oranjes
+      <div id="ariane" vrouw class="prinses"></div>
+    </div>
+    <div id="friso" man class="prins overleden" partner="mabel">
+      <div id="luana" vrouw></div>
+      <div id="zaria" vrouw></div>
+    </div>
+    <div id="constantijn" man class="prins" partner="laurentien">
+      <div id="eloise" vrouw></div>
+      <div id="clauscasimir" class="2ekind" man></div>
+      <div id="leonore" vrouw></div>
+    </div>
+  </div>
+
+  <h3>DOM</h3>
+  <img
+  src=https://setfocus.nl/wp-content/uploads/2018/09/428px-DOM-model.svg_.png>
+  <h3>CSS waterfall / specificity</h3>
+  <img src=https://miro.medium.com/max/1000/1*X8t46W-iH2VGgYOB5aG1nA.jpeg>
+
+  <script>
+    const loveMaking = function (
+      parent,
+      name = "Willy",
+      gender = "man",
+      className = "prins"
+    ) {
+      const child = document.createElement("DIV");
+      //await 9maanden
+      const born = parent.appendChild(child);
+      const selector = `[id*="${name}"]`;
+      const willies = document.querySelectorAll(selector);
+      born.id = name + " #" + (willies.length + 1);
+      born.setAttribute(gender, gender);
+      born.classList.add(className);
+      return born;
+    };
+
+    document.body.addEventListener("click", (event) => {
+      const person = event.target;
+      if (event.ctrlKey) {
+        person.remove();
+      } else {
+        loveMaking(person);
+      }
+    });
+
+    // advanced
+    const prinsesjes = document.getElementsByClassName("prinses");
+    const amalia = document.getElementById("amalia");
+    //newChild(amalia, "willy", "vrouw")
+
+    //amalia.parentNode == alexander
+    //willy.closest('.king') == alexander
+  </script>
+  <style>
+     body {
+      font: 16px Arial;
+      background: lightyellow;
+    }
+
+    div {
+      margin: 0.5em;
+      text-transform: capitalize;
+      border: 10px solid var(--geslachtkleur);
+      cursor: pointer;
+    }
+
+    div.king {
+      background: orange;
+    }
+
+    #alexander {
+      color: gold;
+    }
+
+    [partner] {
+      border: 4px dashed var(--geslachtkleur);
+    }
+
+    [man] {
+      --geslachtkleur: lightblue;
+    }
+
+    [vrouw] {
+      --geslachtkleur: pink;
+    }
+
+    div::before {
+      content: attr(id);
+    }
+
+    div[partner]::before {
+      content: attr(id) " & " attr(partner);
+    }
+
+    [id^="a"][id*="l"] {
+      color: red;
+    }
+
+    .king > div:first-child::after {
+      content: "👑";
+      color: gold;
+    }
+
+    div:not([class]) + [man] {
+      opacity: 0.5;
+      outline: 2px dashed blue;
+    }
+
+    div:nth-child(2) {
+      outline: 4px solid green;
+    }
+  </style>
+</body>
