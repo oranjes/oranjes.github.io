@@ -193,6 +193,14 @@ De waarde x wordt **niet** gewijzigd door functie **f2**, dus x blijft 5 in de a
 return 5 + 1 + (5 - 1);
 ```
 
+```javascript
+const f1 = (x) => {
+  const f2 = (y) => y + 1;
+  const f3 = (z) => z - 1;
+  return f2(x) + f3(x);
+};
+```
+
 </p>
 </details>
 
@@ -333,7 +341,7 @@ const sum = (
 <hr class="questionend">
 <hr class="questionstart">
 
-## Functie parameters (1)
+## Functie parameters (2)
 
 Functie parameters mogen een standaard waarde hebben.
 
@@ -410,8 +418,8 @@ const displayEvenNumbers = (numbers) => {
 
 Waar in de code moet de **isOdd** functie geplaatst worden?
 
-```answers
-1 - voorafgaand aan de DisplayEvenNumbers function
+```basic
+1 - voorafgaand aan de DisplayEvenNumbers functie
 2 - isOdd mag overal in de code staan;
 ```
 
@@ -452,7 +460,7 @@ const capitalize = (x) => x[0].toUpperCase() + x.slice(1);
 
 Welke van de 2 (dezelfde) functionaliteiten heeft jouw voorkeur?
 
-```
+```basic
 1 - zo leesbaar mogelijk
 2 - zo kort mogelijk
 ```
@@ -475,6 +483,8 @@ Technische opmerking: bij het naar een Productie omgeving publiceren van JavaScr
 ## String functies (2) - Prinsjesdag
 
 ```javascript
+const capitalize = (x) => x[0].toUpperCase() + x.slice(1);
+
 const prinsen = ["alexander", "friso", "constatijn"];
 
 const Prinsen = prinsen.map((x) => capitalize(x));
@@ -482,9 +492,9 @@ const Prinsen = prinsen.map((x) => capitalize(x));
 
 Prinsen heeft de waarde:
 
-```
+```js
 1 - "Alexander,Friso,Constatijn"
-2 - ["alexander","friso", "constatijn"]
+2 - [ "Alexander" , "Friso" , "Constatijn" ]
 ```
 
 <details><summary><b>Antwoord</b></summary>
@@ -493,6 +503,21 @@ Prinsen heeft de waarde:
 De Array.map functie verwerkt alle array-items, en retourneert een Array met **hetzelfde aantal** items
 </p>
 </details>
+
+<hr class="questionend">
+<hr class="questionstart">
+
+## String functies (3) - Prinsjesdag
+
+Alleen bij **dezelfde** parameters kun je een voorgedefinieerde functie **verwijzing** gebruiken:
+
+```javascript
+const capitalize = (x) => x[0].toUpperCase() + x.slice(1);
+
+const prinsen = ["alexander", "friso", "constatijn"];
+
+const Prinsen = prinsen.map(capitalize);
+```
 
 <hr class="questionend">
 <hr class="questionstart">
