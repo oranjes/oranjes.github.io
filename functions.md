@@ -193,6 +193,8 @@ De waarde x wordt **niet** gewijzigd door functie **f2**, dus x blijft 5 in de a
 return 5 + 1 + (5 - 1);
 ```
 
+Duidelijker uitgeschreven:
+
 ```javascript
 const f1 = (x) => {
   const f2 = (y) => y + 1;
@@ -200,6 +202,17 @@ const f1 = (x) => {
   return f2(x) + f3(x);
 };
 ```
+
+En dus mag je **x** ook binnen de lokale functies gebruiken:
+
+```javascript
+const f1 = (x) => {
+  const f2 = (y) => y + x;
+  const f3 = (z) => z - x;
+  return f2(x) + f3(x);
+};
+```
+
 
 </p>
 </details>
@@ -334,7 +347,7 @@ parameters mogen worden uitgeschreven over meerdere regels:
 const sum = (
   x, // uitleg x
   y, // uitleg y
-  z // uitleg
+  z //  uitleg z
 ) => x + y + z;
 ```
 
@@ -400,7 +413,7 @@ const E = (
 
 ```javascript
 //helper functions
-/* 1 */ const isOdd = (x) => x % 2 === 0;
+/* 1 */ const isOdd = (x) => x % 2 === 0; // bug van Luc: x % 2 = 0;
 
 //main program
 const displayEvenNumbers = (numbers) => {
@@ -516,14 +529,12 @@ const capitalize = (x) => x[0].toUpperCase() + x.slice(1);
 
 const prinsen = ["alexander", "friso", "constatijn"];
 
+//const Prinsen = prinsen.map((x) => capitalize(x));
 const Prinsen = prinsen.map(capitalize);
 ```
 
 <hr class="questionend">
 <hr class="questionstart">
 
-### Arguments
 
-### ...args
 
-`const sum = (....args) => args.reduce( (_sum,_val) => _sum + _val , 0 // begin waarde );`
