@@ -67,6 +67,7 @@ console.log(plus2(a));
 
 const sum = (x, y) => x + y;
 const E = (m, C) => m * power(C);
+
 //Pythagoras a^2 + b^2 = c^2
 //const c =(a,b) => power(a) + power(b) = power(c);
 const c = (a, b) => Math.sqrt(power(a) + power(b));
@@ -111,7 +112,7 @@ const capitalizeSentence = (x) => joinWords(splitWords(x).map((word) => capitali
 // f1(x)
 const capitalizedWordsArray = (x) => joinWords(splitWords(x).map(capitalize));
 
-// voorwaarden, checks en controles
+// voorwaarden, checks en controles in global Scope
 const isOdd = (x) => x % 2 === 0;
 const isEven = (x) => !isOdd(x);
 
@@ -143,6 +144,7 @@ const targetClicked = (event) => console.log("You clicked!", event.target.id);
 const addClick = (element, clickedFunc) => element.addEventlistener("click", clickedFunc);
 const alex = document.getElementById("alexander");
 
+//remove
 //addClick( alex , targetClicked   );
 //addClick( alex , targetClicked() );
 
