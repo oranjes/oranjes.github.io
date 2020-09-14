@@ -74,7 +74,7 @@ const c = (a, b) => Math.sqrt(power(a) + power(b));
 
 //const power = (x, p = 2) => x ** p;
 
-const circleArea = (r = Math.PI * power(r));
+//const circleArea = (r = Math.PI * power(r));
 
 const sum1 = (x, y) => {
   if (y) {

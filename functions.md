@@ -36,9 +36,15 @@ function f(x) {
 Voor extra duidelijkheid kun je ook schrijven:
 
 ```javascript
-const f = function(x) => {
+const f = function (x) {
   return x;
 };
+```
+
+Maar **niet!**
+
+```javascript
+const f = function(x) => x;
 ```
 
 </details>
@@ -331,7 +337,7 @@ const sum = (
 
 Functie parameters mogen een standaard waarde hebben.
 
-Met welke notatie kan de **power()** functie ook voor **5^3** gebruikt worden voor aanroepen:
+Met welke notatie kan de **power()** functie ook voor **5^3** gebruikt worden:
 
 ```javascript
 1 - const power = (x, p = 2) => x ** p;
@@ -382,12 +388,13 @@ const E = (
 <hr class="questionend">
 <hr class="questionstart">
 
-## displayEvenNumbers
+## Helper functions (1)
 
 ```javascript
-const isOdd = (x) => x % 2 === 0;
-const isEven = (x) => !isOdd(x);
+//helper functions
+/* 1 */ const isOdd = (x) => x % 2 === 0;
 
+//main program
 const displayEvenNumbers = (numbers) => {
   let evenNumbers = [];
   for (let i = 0; i < numbers.length; i++) {
@@ -397,7 +404,98 @@ const displayEvenNumbers = (numbers) => {
     }
   }
 };
+
+/* 2 */ const isOdd = (x) => x % 2 === 0;
 ```
+
+Waar in de code moet de **isOdd** functie geplaatst worden?
+
+```answers
+1 - voorafgaand aan de DisplayEvenNumbers function
+2 - isOdd mag overal in de code staan;
+```
+
+<details><summary><b>Antwoord</b></summary>
+<p>
+
+Antwoord: **beide antwoorden zijn goed**
+
+Als de functie maar bestaat wanneer displayEvenNumbers er gebruik van gaat maken.
+
+- _Helper Functions_ moeten zo generiek mogelijk zijn
+- staan bovenaan de code (leesbaarheid & 100% zekerheid dat functies bestaand)
+- OF in een apart bestand (bijvoorbeeld: `helper-functions.js`)
+
+Er bestaan meerdere Helper Functions libraries: Lodash is de meest bekende.
+Je moet een afweging maken hoeveel functions je gebruikt; als je slechts 2 functies gebruikt uit de Lodash library is het misschien beter om die 2 functions te copieren naar je eigen `helper.js`. Daarmee ben je niet meer afhankelijk van een _3rd party_ library.
+
+![](https://i.imgur.com/na3TzHs.png)
+
+</p>
+</details>
+
+<hr class="questionend">
+<hr class="questionstart">
+
+## String functies (1)
+
+```javascript
+/* 1 */
+const upperCase = (x) => x.toUpperCase();
+const firstLetter = (x) => x[0];
+const remainingLetters = (x) => x.slice(1);
+const capitalize = (x) => upperCase(firstLetter(x)) + remainingLetters(x);
+
+/* 2 */
+const capitalize = (x) => x[0].toUpperCase() + x.slice(1);
+```
+
+Welke van de 2 (dezelfde) functionaliteiten heeft jouw voorkeur?
+
+```
+1 - zo leesbaar mogelijk
+2 - zo kort mogelijk
+```
+
+<details><summary><b>Antwoord</b></summary>
+<p>
+
+Antwoord: **geen goed of fout antwoord**
+
+Jij en je team bepalen wat de _coding-style_ voor het team/project/bedrijf is.
+
+Technische opmerking: bij het naar een Productie omgeving publiceren van JavaScript bestanden, zullen (nog te leren) tools versie **1** zoveel mogelijk _optimaliseren_ naar versie **2**
+
+</p>
+</details>
+
+<hr class="questionend">
+<hr class="questionstart">
+
+## String functies (2) - Prinsjesdag
+
+```javascript
+const prinsen = ["alexander", "friso", "constatijn"];
+
+const Prinsen = prinsen.map((x) => capitalize(x));
+```
+
+Prinsen heeft de waarde:
+
+```
+1 - "Alexander,Friso,Constatijn"
+2 - ["alexander","friso", "constatijn"]
+```
+
+<details><summary><b>Antwoord</b></summary>
+<p>
+
+De Array.map functie verwerkt alle array-items, en retourneert een Array met **hetzelfde aantal** items
+</p>
+</details>
+
+<hr class="questionend">
+<hr class="questionstart">
 
 ### Arguments
 
