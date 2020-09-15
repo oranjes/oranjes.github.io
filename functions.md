@@ -143,7 +143,7 @@ const f1 = (x) => {
 };
 ```
 
-Wat is de uitkomst van **console.log( f2(5) )**
+Wat is de uitkomst van **console.log( f1(5) )**
 
 ```javascript
 1 - 10;
@@ -158,10 +158,10 @@ Antwoord: **1**
 De waarde x wordt **niet** gewijzigd door functie **f2**, dus x blijft 5 in de aanroep van functie **f3**
 
 ```javascript
-return 5 + 1 + (5 - 1);
+return (5 + 1) + (5 - 1);
 ```
 
-Duidelijker uitgeschreven:
+Uitgeschreven met andere parameter namen:
 
 ```javascript
 const f1 = (x) => {
@@ -171,7 +171,7 @@ const f1 = (x) => {
 };
 ```
 
-En dus mag je **x** ook binnen de lokale functies gebruiken:
+En nu mag je **x** ook binnen de lokale functies gebruiken:
 
 ```javascript
 const f1 = (x) => {
