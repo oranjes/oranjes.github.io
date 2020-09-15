@@ -133,38 +133,6 @@ const f3 = f1;
 <hr class="questionend">
 <hr class="questionstart">
 
-## Functieverwijzingen (3)
-
-```javascript
-let f1 = (x) => x + 1;
-let f2 = f1;
-f1 = (x) => x + 2;
-```
-
-Wat is de uitkomst van **console.log( f2(5) )**
-
-```javascript
-1 - 6;
-2 - 7;
-```
-
-<details><summary><b>Antwoord</b></summary>
-<p>
-
-Antwoord: **2**
-
-Functies gedragen zich hetzelfde als _variablen_
-
-Functie **f1** is een `let`, en kan dus een andere waarde krijgen, de vorige functie wordt dus overschreven.
-
-Functie **f2** blijft naar **f1** verwijzen; **niet** naar de _waarde/functie_ van **f1**
-
-</p>
-</details>
-
-<hr class="questionend">
-<hr class="questionstart">
-
 ## Functieverwijzingen (4)
 
 ```javascript
