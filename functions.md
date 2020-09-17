@@ -426,7 +426,7 @@ Je moet een afweging maken hoeveel functions je gebruikt; als je slechts 2 funct
 <hr class="questionend">
 <hr class="questionstart">
 
-## String functies (1)
+## String functies (1) 
 
 ```javascript
 /* 1 */
