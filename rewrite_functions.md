@@ -176,11 +176,19 @@ const toggleMenu = (state = "hidden") => getElementById("navigation-toggle").sty
 const addClick(id,colorFunc) => getElementById(id).addEventListener("click",colorFunc);
 
 addClick("nav-menu",openMenu );
-addClick("nav-toggle-red", colorBody("red"));
-addClick("nav-toggle-blue", colorBody("blue"));
-addClick("nav-toggle-green", colorBody("green"));
-addClick("nav-toggle-yellow", colorBody("yellow"));
-addClick("nav-toggle-brown", colorBody("brown"));
+addClick("nav-toggle-red", ()=> colorBody("red"));
+addClick("nav-toggle-blue", ()=>colorBody("blue"));
+addClick("nav-toggle-green", ()=>colorBody("green"));
+addClick("nav-toggle-yellow", ()=>colorBody("yellow"));
+addClick("nav-toggle-brown", ()=>colorBody("brown"));
+
+const addColorClick = ( id, kleur   ) => addClick(   id , ()=>colorBody(kleur)    );
+addColorClick("nav-toggle-purple", "purple");
+addColorClick("nav-toggle-hotpink", "hotpink");
+addColorClick("nav-toggle-lightgreen", "lightgreen");
+
+["red","blue","hotpink"]
+
 ```
 
 <details><summary>nieuwe Functie maken</summary>
@@ -244,7 +252,6 @@ let colors=["red","blue","green","yellow","brown"];
 
 //setElementColorOnClick("nav-toggle-red");
 
-colors.forEach(color=>setElementColorOnClick("nav-toggle-"+color);
-)
+colors.forEach(color=>setElementColorOnClick("nav-toggle-"+color));
 
 ```
