@@ -484,6 +484,18 @@ Prinsen heeft de waarde:
 Antwoord: **2**
 
 De Array.map functie verwerkt alle array-items, en retourneert een Array met **hetzelfde aantal** items
+
+``(x) => capitalize(x)`` noemen we een Anonymous function (want heeft heen naam)
+
+De .map function (van een Array) roept (in een loop) voor elk Array item de functie aan.
+
+Anders opgeschreven:
+
+```javascript
+const Prinsen = prinsen.map( (array_item) => capitalize(array_item) );
+```
+
+
 </p>
 </details>
 
@@ -500,8 +512,14 @@ const capitalize = (x) => x[0].toUpperCase() + x.slice(1);
 const prinsen = ["alexander", "friso", "constatijn"];
 
 //const Prinsen = prinsen.map((x) => capitalize(x));
-const Prinsen = prinsen.map(capitalize);
+const Prinsen = prinsen.map( capitalize );
 ```
+
+Let op! Net als bij de eerste vragen is 'capitalize' nu een functie-**verwijzing**
+
+Foutieve notaties (als je ze typt) vind je terug in de console:
+
+![](https://i.imgur.com/7JImpjX.png)
 
 <hr class="questionend">
 <hr class="questionstart">
