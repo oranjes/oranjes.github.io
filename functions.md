@@ -133,7 +133,7 @@ const f3 = f1;
 <hr class="questionend">
 <hr class="questionstart">
 
-## Functieverwijzingen (4)
+## Functieverwijzingen (3)
 
 ```javascript
 const f1 = (x) => {
@@ -188,7 +188,7 @@ const f1 = (x) => {
 <hr class="questionend">
 <hr class="questionstart">
 
-## Functieverwijzingen (5)
+## Functieverwijzingen (4)
 
 ```javascript
 const f1 = (x) => x + 1;
@@ -480,6 +480,8 @@ Prinsen heeft de waarde:
 
 <details><summary><b>Antwoord</b></summary>
 <p>
+
+Antwoord: **2**
 
 De Array.map functie verwerkt alle array-items, en retourneert een Array met **hetzelfde aantal** items
 </p>
