@@ -1,6 +1,14 @@
+# dinsdag 22 september - Datatypes Array & Object
+
+## https://oranjes.github.io
+  * [Leesdocument & oefenvragen](https://github.com/oranjes/oranjes.github.io/blob/master/datatypes.md)
+  * [Website](https://oranjes.github.io/javascriptians/index.html) - om te analyseren met F12 inspector
+  * [Broncode op Github](https://github.com/oranjes/oranjes.github.io/tree/master/javascriptians)
 # Datatypes
 
 ![](https://www.tutsmake.com/wp-content/uploads/2020/05/JavaScript-Data-Types-Examples-1.jpeg)
+
+**Primitieven** kunnen maar 1 waarde zijn/bevatten
 
 ## Number && String
 
@@ -47,7 +55,7 @@ Bij een vergelijking van een String met een String, vergelijkt JavaScript de Str
 
 Dus `"aac" < "aap"` en `"aaap" < "aap"`
 
-Dus bij `"35" < "40"` houdt de vergelijking op. De "0" wordt niet meegenomen in de (alfabetische) vergelijking.
+Dus bij `"35" < "40"` houdt de **alfabetische** vergelijking op. De "0" wordt niet meer meegenomen in de vergelijking.
 
 </details>
 
@@ -60,7 +68,26 @@ MDN Documentatie: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 #### Negation
 
-#### Falsy values
+```js
+!false === true;
+false === !true;
+
+false !== !false;
+```
+
+Probeer **negation** te voorkomen:
+
+```javascript
+const f(x)={
+    if(!x){
+        // geen x waarde
+    } else {
+        // wel een x waarde
+    }
+}
+```
+
+### Falsy values
 
 - Number `0`
 - keyword `null`
@@ -79,7 +106,7 @@ while (!naam) {
 console.log(`Hallo ${naam}`);
 ```
 
-**Tip:** gebruik zoveel mogelijk _strict comparison_ **===** en **!==**
+**Tip:** gebruik zoveel mogelijk _strict comparison_ **`===`** en **`!==`**
 
 ```js
 while (naam.length === 0) {}
@@ -227,14 +254,14 @@ let MyObject = {
   Alexander: {
     partner: {
       name: "Maxima",
-      "person-age": 49
+      "person-age": 49,
     },
   },
 };
 let lookup = "key1";
 
 console.log(MyObject.key1); // Hello World
-console.log(MyObject["key1"]); // Hello World
+console.log(MyObject["key1"]); // Hello World ('brackets notation')
 console.log(MyObject[lookup]); // Hello World
 
 lookup = MyObject.Alexander.partner;
@@ -310,4 +337,3 @@ Wat staat er in de console?
 ```
 
 # Code met Arrays && Objects leren lezen
-
