@@ -1,9 +1,11 @@
 # dinsdag 22 september - Datatypes Array & Object
 
 ## https://oranjes.github.io
-  * [Leesdocument & oefenvragen](https://github.com/oranjes/oranjes.github.io/blob/master/datatypes.md)
-  * [Website](https://oranjes.github.io/javascriptians/index.html) - om te analyseren met F12 inspector
-  * [Broncode op Github](https://github.com/oranjes/oranjes.github.io/tree/master/javascriptians)
+
+- [Leesdocument & oefenvragen](https://github.com/oranjes/oranjes.github.io/blob/master/datatypes.md)
+- [Website](https://oranjes.github.io/javascriptians/index.html) - om te analyseren met F12 inspector
+- [Broncode op Github](https://github.com/oranjes/oranjes.github.io/tree/master/javascriptians)
+
 # Datatypes
 
 ![](https://www.tutsmake.com/wp-content/uploads/2020/05/JavaScript-Data-Types-Examples-1.jpeg)
@@ -78,11 +80,23 @@ false !== !false;
 Probeer **negation** te voorkomen:
 
 ```javascript
-const f(x)={
-    if(!x){
-        // geen x waarde
-    } else {
+const f = (x) => {
+  if (!x) {
+    // geen x waarde
+  } else {
+    // wel een x waarde
+  }
+};
+```
+
+Draai de `if-else` takken om:
+
+```javascript
+const f = (x) => {
+    if (x) {
         // wel een x waarde
+    } else {
+        // geen x waarde
     }
 }
 ```
@@ -96,17 +110,20 @@ const f(x)={
 - Number `NaN`
 - String `""` (of '' en `` )
 
-Deze waarden kun je met _Loose Comparison_ **==** en **!=** vergelijken met `true` en `false`
+Deze waarden kun je met _Loose Comparison_ **==** en **!=** vergelijken met **true** en **false**
 
-```js
+```javascript
 let naam = "";
-while (!naam) {
+while (!naam) { // (!naam == true)
   naam = prompt("Wat is je naam");
 }
 console.log(`Hallo ${naam}`);
 ```
 
-**Tip:** gebruik zoveel mogelijk _strict comparison_ **`===`** en **`!==`**
+**Tip:** gebruik zoveel mogelijk _strict comparison_ **`===`** en **`!==`**  
+Want dat voorkomt logische fouten.
+
+Bovenstaande kun je ook schrijven als:
 
 ```js
 while (naam.length === 0) {}
@@ -126,6 +143,8 @@ let functionResult = setColor("red");// undefined
 ```
 
 ### Maak je eigen ketting (chaining function)
+
+Als de functie toch niets terug geeft, kun je er net zo goed gebruik van maken:
 
 ```javascript
 const setBackground(value) => {
@@ -299,7 +318,7 @@ Er is **geen** 'volgorde' in een Object.
 
 ![](https://i.imgur.com/9shC7WR.png)
 
-- De console _samenvatting_ (1e regel) toont de gebruikte volgorde. ["Willy"] **overschrijft** de eerder gebruikte key:Alexander
+- De console _samenvatting_ (1e regel) toont de gebruikte volgorde. ["Willy"] **overschrijft** de eerder gebruikte *key:* Alexander
 - De uitgeklapte Array informatie toont de keys in **alfabetische** volgerde
 
 Nogmaals, er **is geen volgorde** in een Object. Het is alleen in de Console dat er een 'volgorde' **lijkt** te zijn
