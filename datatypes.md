@@ -293,19 +293,6 @@ lookup = MyObject.Alexander.partner;
 console.log(`${lookup.name} is ${lookup["person-age"]} jaar oud`); // Maxima is 49 jaar oud
 ```
 
-### Aanvulling: toevoegen aan Object
-
-```js
-// set new key
-MyObject.Beatrix = {
-    partner:"Claus"
-};
-
-// using ... spread Operator
-MyObject = { ...MyObject , Friso:{ partner:"Mabel" } };
-```
-
-
 ### Vraag:
 
 ```javascript
@@ -343,7 +330,7 @@ Nogmaals, er **is geen volgorde** in een Object. Het is alleen in de Console dat
 
 </details>
 
-### Aanvulling: Elementen toevoegen 
+### Aanvulling: Elementen toevoegen aan Array
 
 ```js
 //Met ... spread operator
@@ -355,6 +342,18 @@ gezinVan.Alexander = [ ...gezinVan.Alexander , "Arie" ,  "Alydia"];
 gezinVan.Alexander = gezinVan.Alexander.push( "Arie" );
 // Met concat (meerdere parameters)
 gezinVan.Alexander = gezinVan.Alexander.concat( "Arie2" ,  "Alydia" );
+```
+
+### Aanvulling: Keys/inhoud toevoegen aan Object
+
+```js
+// set new key
+MyObject.Beatrix = {
+    partner:"Claus"
+};
+
+// using ... spread Operator
+MyObject = { ...MyObject , Friso:{ partner:"Mabel" } };
 ```
 
 <hr>
