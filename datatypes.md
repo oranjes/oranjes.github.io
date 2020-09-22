@@ -135,9 +135,9 @@ while (naam === "") {}
 Wanneer je zelf **geen** return value opgeeft, is er **altijd** (impliciet) een: return `undefined`;
 
 ```javascript
-const setColor(value) => {
+const setColor = (value) => {
     document.body.style.background = value;
-    /* return undefined; */
+    /* implicit return undefined; */
 }
 let functionResult = setColor("red");// undefined
 ```
@@ -147,7 +147,7 @@ let functionResult = setColor("red");// undefined
 Als de functie toch niets terug geeft, kun je er net zo goed gebruik van maken:
 
 ```javascript
-const setBackground(value) => {
+const setBackground = (value) => {
     document.body.style.background = value;
     return document.body.style;
 }
@@ -269,7 +269,7 @@ let prinsessen = {
 
 ```javascript
 let MyObject = {
-  key1: "Hello World",
+    key1 : "Hello World",
   Alexander: {
     partner: {
       name: "Maxima",
@@ -277,6 +277,11 @@ let MyObject = {
     },
   },
 };
+
+const lookup = "Friso";
+const age_lookup = "age";
+MyObject[lookup][age_lookup]
+
 let lookup = "key1";
 
 console.log(MyObject.key1); // Hello World
@@ -288,14 +293,27 @@ lookup = MyObject.Alexander.partner;
 console.log(`${lookup.name} is ${lookup["person-age"]} jaar oud`); // Maxima is 49 jaar oud
 ```
 
+### Aanvulling: toevoegen aan Object
+
+```js
+// set new key
+MyObject.Beatrix = {
+    partner:"Claus"
+};
+
+// using ... spread Operator
+MyObject = { ...MyObject , Friso:{ partner:"Mabel" } };
+```
+
+
 ### Vraag:
 
 ```javascript
 let gezinVan = {
   Constantijn: ["Eloise", "Claus-Casimir", ""],
   Alexander: ["Amalia", "Alexia", "Ariane"],
-  Friso: ["Luana", "Zaria"],
-  Alexander: ["Willy"],
+  Friso: ["Luana", "Zaria" , undefined ,  undefined , "Arie"],
+  //Alexander: [ ...gezinVan.Alexander , "Arie" ,  "Alydia"] // Error gezinVan === undefined
 };
 ```
 
@@ -324,6 +342,20 @@ Er is **geen** 'volgorde' in een Object.
 Nogmaals, er **is geen volgorde** in een Object. Het is alleen in de Console dat er een 'volgorde' **lijkt** te zijn
 
 </details>
+
+### Aanvulling: Elementen toevoegen 
+
+```js
+//Met ... spread operator
+gezinVan.Alexander = [ ...gezinVan.Alexander , "Arie" ,  "Alydia"];
+// [ "Amalia", "Alexia", "Ariane" , "Arie" , "Alydia"]
+// zonder ... spread operator:
+// [  ["Amalia", "Alexia", "Ariane"]  , "Arie" , "Alydia"]
+// Met push (1 parameter)
+gezinVan.Alexander = gezinVan.Alexander.push( "Arie" );
+// Met concat (meerdere parameters)
+gezinVan.Alexander = gezinVan.Alexander.concat( "Arie2" ,  "Alydia" );
+```
 
 <hr>
 
