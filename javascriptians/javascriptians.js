@@ -20,7 +20,7 @@ data model HTML array:
     ] ,
 ]
 */
-// FUNCTIONS
+// FUNCTIONS IN een HTML Object, alles netjes bijelkaar, en door altijd HTML.tag() te schrijven is de code leesbaarder
 const HTML = {
   f: (x) => x + 1,
   tag: (tag, content) => `<${tag}>${content}</${tag}>`,
@@ -33,14 +33,14 @@ const rankArray = (rank) => new Array(HTML.tag("H2", `Rank ${rank}`));
 
 function addMember(str /* eg. "Lydia,1" */) {
 
-  const [name, rank = 1] = str.split(",");
+  const [name, rank = 1] = str.split(","); // destructure ["Lydia",1] naar const met zelf te geven naam, rank krijg een default waarde
 
   const html = HTML.membertag({ content: name });
   programData.output[rank].push(html);
 }
 
 // PROGRAM
-let testMembers = ["Alexia,3", "Amalia,2", "Ariane"];
+let testMembers = ["Alexia Test,3", "Amalia Test,2", "Ariane Test"];// Ariane default to 1 in addMember functie
 // testMembers = [];
 let ranks = ["Bronze", "Zilver", "Gold"].map(rankArray); // (rank) => rankArray(rank)
 
@@ -50,7 +50,7 @@ const programData = {
 };
 console.log("programData:", programData);
 
-programData.members.forEach(addMember); // (str) => addMember(str)
+programData.members.forEach(addMember); // forEach((str) => addMember(str)) hoeven we niet te schrijven
 
 // ["<H1>Javascriptians</H1>" , [ "Rank Bronze" , "Lydia" .. ] , [ "Rank Zilver" , "JS#2" .. ] ]
 
